@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include<math.h>
-#include "point.h"
+#include"point.h"
 #define MAX 1
 #define MIN -1
 
@@ -9,11 +9,12 @@ struct point * newPoint(double x, double y, int class){
   struct point * this;
 
   this = malloc(sizeof(struct point));
-  if(p == NULL){
+
+  if(this == NULL){
     printf("Erreur d'allocation !\n");
   }
   else{
-    if(!setX(this, x) || !setY(this, y)){
+    if((!setX(this,x)) || !setY(this, y)){
       return NULL;
     }
     setClass(this, class);
@@ -21,7 +22,8 @@ struct point * newPoint(double x, double y, int class){
   return this;
 }
 
-int setX(struct point * this, int x){
+
+int setX(struct point * this, double x){
   if(x>MAX || x<MIN){
     printf("Coordonées non recevables");
     return 0;
@@ -30,7 +32,7 @@ int setX(struct point * this, int x){
   return 1;
 }
 
-int setY(struct point * this, int y){
+int setY(struct point * this, double y){
   if(y>MAX || y<MIN){
     printf("Coordonées non recevables");
     return 0;
@@ -38,6 +40,8 @@ int setY(struct point * this, int y){
   this->y = y;
   return 1;
 }
+
+
 
 void setClass(struct point * this, int class){
   this->class = class;

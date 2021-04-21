@@ -5,13 +5,13 @@ typedef struct point{
   double x;
   double y;
   int class;
-}point
+}point;
 
 struct point * newPoint(double, double, int);
 
-void setX(struct point*, double);
+int setX(struct point*, double);
 
-void setY(struct point*, double);
+int setY(struct point*, double);
 
 void setClass(struct point *, int);
 

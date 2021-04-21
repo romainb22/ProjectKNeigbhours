@@ -7,11 +7,15 @@ LDLIBS = `pkg-config --libs-only-l MLV`
 
 
 
-main :main.o
-	$(CC) $(CFLAGS) $(LDFLAGS)main.o $(LDLIBS) -o main
+main :point.o main.o
+	$(CC) $(CFLAGS) $(LDFLAGS)point.o main.o $(LDLIBS) -o main
 
-main.o :
-	$(CC) $(CFLAGS) 
+main.o : point.c main.c
+	$(CC) $(CFLAGS) -c main.c point.c
+
+point.o : point.c point.h
+	$(CC) $(CFLAGS) -c point.c -o point.o
+
 
 
 clean :
