@@ -41,8 +41,6 @@ int setY(struct point * this, double y){
   return 1;
 }
 
-
-
 void setClass(struct point * this, int class){
   this->class = class;
 }
