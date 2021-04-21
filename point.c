@@ -2,7 +2,6 @@
 #include<stdio.h>
 #include<math.h>
 #include "point.h"
-/*ceci est un com */
 #define MAX 1
 #define MIN -1
 
