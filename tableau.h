@@ -4,17 +4,16 @@
 
 typedef struct tableau{
   point ** element;
-  int avoir;
+  int nbElem;
+  int max;
 }tableau;
 
-struct point * newPoint(double, double, int);
+struct tableau * newTable(int);
 
-int setX(struct point*, double);
+int addPoint(struct tableau*, struct point*);
 
-int setY(struct point*, double);
+int addPointFull(struct tableau*, struct point*);
 
-void setClass(struct point *, int);
+int removePoint(struct tableau*);
 
-double getDistance(struct point *, struct point *);
-
-void deletePoint(struct point *);
+void deleteTable(struct tableau*);
