@@ -12,13 +12,13 @@ tableau * loadFromfile(char * path){
   float x,y;
   tableau * myTab;
 
-
   i = -1;
   f = fopen(path,"r");
   if (f!=NULL){
     while (fgets(c,MAX_LINE_LENGTH, f)!=NULL){
       if(i==-1){
         sscanf(c,"%d %d %d", &nbPoints, &dimension, &nbClasses);
+        printf(c,"%d %d %d\n", nbPoints, dimension, nbClasses);
       }
       else{
         /* Do nothing */
@@ -37,6 +37,7 @@ tableau * loadFromfile(char * path){
       }
       else{
         sscanf(c,"%d %f %f", &classe, &x, &y);
+        printf("%d %f %f\n", classe, x, y);
         myTab->element[i]= newPoint(x, y, classe);
       }
       i++;
