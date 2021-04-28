@@ -14,20 +14,22 @@ tableau * loadFromfile(char * path){
 
   i = -1;
   f = fopen(path,"r");
-  if (f!=NULL){
+  if (f==NULL){
+    perror("ERROR");
+  }
+  else {
     while (fgets(c,MAX_LINE_LENGTH, f)!=NULL){
       if(i==-1){
         sscanf(c,"%d %d %d", &nbPoints, &dimension, &nbClasses);
-        printf(c,"%d %d %d\n", nbPoints, dimension, nbClasses);
       }
-      else{
-        /* Do nothing */
-      }
-      i++;
+
+
     }
-    fclose(f);
-    myTab = newTable(nbPoints);
+    i++;
   }
+  fclose(f);
+  myTab = newTable(nbPoints);
+
   f=fopen(path,"r");
   i = -1;
   if (f!=NULL){
@@ -37,7 +39,6 @@ tableau * loadFromfile(char * path){
       }
       else{
         sscanf(c,"%d %f %f", &classe, &x, &y);
-        printf("%d %f %f\n", classe, x, y);
         myTab->element[i]= newPoint(x, y, classe);
       }
       i++;

@@ -10,7 +10,7 @@
 int main(){
   srand(time(NULL));
   tableau *tab;
-  tab = loadFromfile("/example/ex1.txt");
+  tab = loadFromfile("./example/ex1.txt");
 
 exit(EXIT_SUCCESS);
 }
