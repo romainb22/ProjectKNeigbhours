@@ -3,12 +3,6 @@
 #include"tableau.h"
 #include"point.h"
 
-typedef struct tableau{
-  point ** element;
-  int nbElem;
-  int max;
-}tableau;
-
 struct tableau * newTable(int max){
   tableau * tab;
   tab = malloc(sizeof(point)*max+sizeof(int)*2);

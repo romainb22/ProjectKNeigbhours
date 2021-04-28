@@ -1,7 +1,7 @@
 TARGETS=main
 
 CC = gcc
-CFLAGS = -W -Wall -std=c89 -pedantic -O3 `pkg-config --cflags MLV`
+CFLAGS = -W -Wall `pkg-config --cflags MLV`
 LDFLAGS = `pkg-config --libs-only-other --libs-only-L MLV`
 LDLIBS = `pkg-config --libs-only-l MLV`
 
@@ -19,4 +19,4 @@ point.o : point.c point.h
 
 
 clean :
-	rm -rf *.o
+	rm -rf *.o main
