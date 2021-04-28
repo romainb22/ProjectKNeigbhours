@@ -16,7 +16,7 @@ struct tableau * newTable(int max){
 
 int addPoint(struct tableau* myTab, struct point* myPoint){
   if(myTab->nbElem < myTab->max){
-    myTab->element[nbElem-1] = myPoint;
+    myTab->element[myTab->nbElem-1] = myPoint;
     myTab->nbElem++;
     return 1;
   }
@@ -39,7 +39,7 @@ int removePoint(struct tableau * myTab){
     return 0;
   }
   else{
-    deletePoint(myTab[myTab->nbElem]);
+    deletePoint(myTab->element[myTab->nbElem]);
     myTab->nbElem--;
     return 1;
   }
