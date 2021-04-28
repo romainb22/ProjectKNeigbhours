@@ -23,17 +23,7 @@ int main(){
   p2=newPoint(x2,y2,c);
   getDistance(p1,p2);
   printf("%f\n",getDistance(p1,p2));
-
-
-  /*for(i=0;i<50;i++){
-  x = (double) rand()/RAND_MAX*2.0-1.0;
-  y = (double) rand()/RAND_MAX*2.0-1.0;
-  tableau[i] = newPoint(x,y,i%2+1);
-}
-for(i=0;i<49;i++){
-printf("%f\n",getDistance(tableau[i],tableau[i+1]));
-}*/
-tableau = loadFromfile("/example/ex1.txt");
+  tableau = loadFromfile("/example/ex1.txt");
 
 exit(EXIT_SUCCESS);
 }

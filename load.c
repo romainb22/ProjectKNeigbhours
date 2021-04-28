@@ -1,9 +1,15 @@
-point ** loadFromfile(char * path){
+#include <stdlib.h>
+#include <stdio.h>
+#include "tableau.h"
+#include "point.h"
+#include "load.h"
+
+tableau * loadFromfile(char * path){
   FILE *f = NULL;
   char c[MAX_LINE_LENGTH];
   int nbPoints, dimension, nbClasses,i,classe;
   float x,y;
-  point * tab[nbPoints];
+  tableau * myTab;
 
 
   i = -1;
@@ -19,6 +25,7 @@ point ** loadFromfile(char * path){
       i++;
     }
     fclose(f);
+    myTab = newTable(nbPoints);
   }
   f=fopen(path,"r");
   i = -1;
@@ -29,14 +36,14 @@ point ** loadFromfile(char * path){
       }
       else{
         sscanf(c,"%d %f %f", &classe, &x, &y);
-        tab[i]= newPoint(x, y, classe);
+        myTab->element[i]= newPoint(x, y, classe);
       }
       i++;
     }
     fclose(f);
   }
   for(i=1;i<nbPoints;i++){
-    printf("%f\n",getDistance(tab[i-1],tab[i]));
+    printf("%f\n",getDistance(myTab->element[i-1],myTab->element[i]));
   }
-  return tab;
+  return myTab;
 }
