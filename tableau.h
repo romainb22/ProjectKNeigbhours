@@ -1,3 +1,7 @@
+#ifndef _TABLEAU_H_
+#define _TABLEAU_H_
+
+
 #include<stdlib.h>
 #include<stdio.h>
 #include"point.h"
@@ -17,3 +21,5 @@ int addPointFull(struct tableau*, struct point*);
 int removePoint(struct tableau*);
 
 void deleteTable(struct tableau*);
+
+#endif

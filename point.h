@@ -1,3 +1,6 @@
+#ifndef _POINT_H_
+#define _POINT_H_
+
 #include<stdlib.h>
 #include<stdio.h>
 
@@ -18,3 +21,5 @@ void setClass(struct point *, int);
 double getDistance(struct point *, struct point *);
 
 void deletePoint(struct point *);
+
+#endif
