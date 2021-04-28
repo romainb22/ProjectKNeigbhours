@@ -3,6 +3,7 @@
 #include "tableau.h"
 #include "point.h"
 #include "load.h"
+#define MAX_LINE_LENGTH 15
 
 tableau * loadFromfile(char * path){
   FILE *f = NULL;
