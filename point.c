@@ -5,21 +5,22 @@
 #define MAX 1
 #define MIN -1
 
-struct point * newPoint(double x, double y, int class){
+struct point * newPoint(){
   struct point * this;
-
   this = malloc(sizeof(struct point));
 
   if(this == NULL){
     printf("Erreur d'allocation !\n");
   }
-  else{
-    if((!setX(this,x)) || !setY(this, y)){
-      return NULL;
-    }
-    setClass(this, class);
-  }
   return this;
+}
+
+int initPoint(point * myPoint, double x, double y, int class){
+  if((!setX(myPoint,x)) || !setY(myPoint, y)){
+    return 0;
+  }
+  setClass(myPoint, class);
+  return 1;
 }
 
 

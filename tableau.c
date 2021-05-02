@@ -5,9 +5,13 @@
 
 struct tableau * newTable(int max){
   tableau * tab;
+  int i;
   tab = malloc(sizeof(point)*max+sizeof(int)*2);
   if(tab==NULL){
     printf("Erreur d'allocation !\n");
+  }
+  for(i=0;i<max;i++){
+    tab->element[i]=newPoint();
   }
   tab->nbElem = 0;
   tab->max = max;
@@ -16,9 +20,10 @@ struct tableau * newTable(int max){
 
 int addPoint(struct tableau* myTab, struct point* myPoint){
   if(myTab->nbElem < myTab->max){
-    myTab->element[myTab->nbElem-1] = myPoint;
-    myTab->nbElem++;
-    return 1;
+    if(initPoint(myTab->element[myTab->nbElem-1],myPoint->x,myPoint->y,myPoint->class)){
+      myTab->nbElem++;
+      return 1;
+    }
   }
   else if(myTab->nbElem == myTab->max){
     addPointFull(myTab,myPoint);
