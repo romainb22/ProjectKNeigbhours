@@ -18,6 +18,10 @@ element sommet_pile(pile p){
   return renvoie_premier_liste(p);
 }
 
+element sommet_file(pile p){
+  return renvoie_dernier_liste(p);
+}
+
 pile depiler(pile p){
   return supprimer_premier_liste(p);
 }
