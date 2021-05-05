@@ -38,8 +38,9 @@ void rein_fenetre(int x, int y){
 void zone_affichage(int x, int y){
 
 
-    MLV_draw_rectangle(x/50,y/20,x/1.5,650,MLV_COLOR_WHITE);
-    MLV_draw_line(13,y/20,x/1.5,650,MLV_COLOR_WHITE);
+    MLV_draw_rectangle(x/50,y/20,650,650,MLV_COLOR_WHITE);
+    MLV_draw_line(x/50+325,y/20,x/50+325,y/20+650,MLV_COLOR_WHITE);
+    MLV_draw_line(x/50,y/20+325,x/50+650,y/20+325,MLV_COLOR_WHITE);
 
 }
 
@@ -90,7 +91,7 @@ void save_donnees(int x, int y){
 void charge_fichier(int x, int y){
     char c[50]="chargement d'un fichier mode creation";
     int width_text,height_text,positionX;
-    MLV_get_size_of_text( c,&width_text,&height_text );
+    MLV_get_size_of_text( c, &width_text,&height_text );
     positionX = (x*0.975)-width_text;
     MLV_draw_adapted_text_box(positionX,y*0.9,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 }

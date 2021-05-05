@@ -7,6 +7,8 @@
 #include "load.h"
 #include "affichage.h"
 #include <MLV/MLV_all.h>
+#define LARGEUR 1300
+#define HAUTEUR 720
 #define MAX_LINE_LENGTH 15
 
 int main(){
@@ -14,23 +16,23 @@ int main(){
   pile tab;
   tab = loadFromfile("./example/ex1.txt");
 
-MLV_create_window("P","iconetest",1280,720);
+MLV_create_window("P","iconetest",LARGEUR,HAUTEUR);
 MLV_clear_window( MLV_COLOR_GREY20);
-mode_creation(1280,720);
-mode_kppv(1280,720);
-vakeur_k(1280, 720,"valeur de K");
-rein_fenetre(1280,720);
-zone_affichage(1280,720);
-efface_dernier_point(1280,720);
-classe_manuel(1280,720);
-option_affichage(1280,720);
-voisinage(1280,720);
-avec_prise_decision(1280,720);
-save_donnees(1280,720);
-charge_fichier(1280,720);
+mode_creation(LARGEUR,HAUTEUR);
+mode_kppv(LARGEUR,HAUTEUR);
+vakeur_k(LARGEUR, HAUTEUR,"valeur de K");
+rein_fenetre(LARGEUR,HAUTEUR);
+zone_affichage(LARGEUR,HAUTEUR);
+efface_dernier_point(LARGEUR,HAUTEUR);
+classe_manuel(LARGEUR,HAUTEUR);
+option_affichage(LARGEUR,HAUTEUR);
+voisinage(LARGEUR,HAUTEUR);
+avec_prise_decision(LARGEUR,HAUTEUR);
+save_donnees(LARGEUR,HAUTEUR);
+charge_fichier(LARGEUR,HAUTEUR);
 
 MLV_actualise_window();
-MLV_wait_seconds(20);
+MLV_wait_seconds(360);
 MLV_free_window();
 
 
