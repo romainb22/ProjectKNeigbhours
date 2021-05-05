@@ -10,9 +10,9 @@
 #define MAX_LINE_LENGTH 15
 
 int main(){
-/*  srand(time(NULL));
+  srand(time(NULL));
   pile tab;
-  tab = loadFromfile("./example/ex1.txt"); */
+  tab = loadFromfile("./example/ex1.txt");
 
 MLV_create_window("test","iconetest",1000,1000);
 /*MLV_draw_rectangle(50,100,400,450,MLV_COLOR_BLUE);*/
