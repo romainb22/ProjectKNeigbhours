@@ -11,7 +11,7 @@
 
 int main(){
 /*  srand(time(NULL));
-  tableau *tab;
+  pile tab;
   tab = loadFromfile("./example/ex1.txt"); */
 
 MLV_create_window("test","iconetest",1000,1000);
