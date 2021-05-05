@@ -46,13 +46,13 @@ void zone_affichage(int x, int y){
 
 void efface_dernier_point(int x, int y){
     char c[50]="Effacement du dernier point en mode decision";
-    MLV_draw_adapted_text_box(x/2+240,y/20,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+    MLV_draw_adapted_text_box(x/50+650,y/10,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 
 }
 
 void classe_manuel(int x, int y){
     char c[50]="classer mauellement mode creation";
-    MLV_draw_adapted_text_box(x/2+240,y/20,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+    MLV_draw_adapted_text_box(x/50+650,y/20,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 }
 
 void option_affichage(int x, int y){
