@@ -10,9 +10,9 @@
 #define MAX_LINE_LENGTH 15
 
 int main(){
-/*  srand(time(NULL));
+  srand(time(NULL));
   pile tab;
-  tab = loadFromfile("./example/ex1.txt"); */
+  tab = loadFromfile("./example/ex1.txt");
 
 MLV_create_window("P","iconetest",1280,720);
 MLV_clear_window( MLV_COLOR_GREY20);

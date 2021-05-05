@@ -8,9 +8,9 @@
 pile loadFromfile(char * path){
   FILE *f = NULL;
   char c[MAX_LINE_LENGTH];
-  int nbPoints, dimension, nbClasses,i,classe;
+  int /*nbPoints, dimension, nbClasses,*/i,classe;
   float x,y;
-  pile * myTab = pile_vide();
+  pile myTab = pile_vide();
 
   /*i = -1;
   f = fopen(path,"r");
@@ -37,7 +37,10 @@ pile loadFromfile(char * path){
       else{
         sscanf(c,"%d %f %f\n", &classe, &x, &y);
         printf("%d %f %f\n", classe, x, y);
-        myTab = empiler(myTab,newPoint(x, y, classe)); /* SIGSEV from here */
+        myTab = empiler(myTab,newPoint()); /* SIGSEV from here */
+        if(initPoint(myTab->objet, x, y, classe)==0){
+          printf("Erreur d'initialisation !");
+        }
       }
       i++;
     }
