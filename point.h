@@ -10,7 +10,9 @@ typedef struct point{
   int class;
 }point;
 
-struct point * newPoint(double, double, int);
+struct point * newPoint();
+
+int initPoint(struct point*, double, double, int);
 
 int setX(struct point*, double);
 

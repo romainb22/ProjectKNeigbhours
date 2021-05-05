@@ -22,14 +22,11 @@ tableau * loadFromfile(char * path){
       if(i==-1){
         sscanf(c,"%d %d %d", &nbPoints, &dimension, &nbClasses);
       }
-
-
     }
     i++;
   }
   fclose(f);
   myTab = newTable(nbPoints);
-
   f=fopen(path,"r");
   i = -1;
   if (f!=NULL){
@@ -38,15 +35,17 @@ tableau * loadFromfile(char * path){
         /* Do nothing */
       }
       else{
-        sscanf(c,"%d %f %f", &classe, &x, &y);
-        myTab->element[i]= newPoint(x, y, classe);
+        sscanf(c,"%d %f %f\n", &classe, &x, &y);
+        printf("%d %f %f\n", classe, x, y);
+        addPoint(myTab,newPoint(x, y, classe)); /* SIGSEV from here */
       }
       i++;
     }
     fclose(f);
   }
-  for(i=1;i<nbPoints;i++){
+  printf("n\n");
+  /*for(i=1;i<nbPoints;i++){
     printf("%f\n",getDistance(myTab->element[i-1],myTab->element[i]));
-  }
+  }*/
   return myTab;
 }
