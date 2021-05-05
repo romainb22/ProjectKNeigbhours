@@ -1,0 +1,12 @@
+void mode_creation(int x, int y);
+void mode_kppv(int x, int y);
+void vakeur_k(int x, int y,char * s);
+void rein_fenetre(int x, int y);
+void zone_affichage(int x, int y);
+void efface_dernier_point(int x, int y);
+void classe_manuel(int x, int y);
+void option_affichage(int x, int y);
+void voisinage(int x, int y);
+void avec_prise_decision(int x, int y);
+void save_donnees(int x, int y);
+void charge_fichier(int x, int y);
