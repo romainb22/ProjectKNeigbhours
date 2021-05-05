@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <math.h>
 #include<time.h>
-#include "point.h"
-#include "tableau.h"
+#include "liste.h"
+#include "pile.h"
 #include "load.h"
 #include "affichage.h"
 #include <MLV/MLV_all.h>
