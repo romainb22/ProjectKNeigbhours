@@ -8,10 +8,10 @@ LDLIBS = `pkg-config --libs-only-l MLV`
 
 
 main :pile.o main.o
-	$(CC) $(CFLAGS) $(LDFLAGS) pile.o liste.o load.o affichage.o main.o $(LDLIBS) -o main
+	$(CC) $(CFLAGS) $(LDFLAGS) pile.o liste.o load.o affichage.o point.o main.o $(LDLIBS) -o main
 
-main.o : pile.c load.c liste.c affichage.c main.c
-	$(CC) $(CFLAGS) -c main.c pile.c load.c liste.c affichage.c
+main.o : pile.c load.c liste.c affichage.c point.c main.c
+	$(CC) $(CFLAGS) -c main.c pile.c load.c liste.c affichage.c point.c
 
 load.o : load.c load.h
 	$(CC) $(CFLAGS) -c load.c -o load.o
@@ -25,6 +25,8 @@ affichage.o : affichage.c affichage.h
 pile.o : pile.c pile.h
 	$(CC) $(CFLAGS) -c pile.c -o pile.o
 
+point.o : point.c point.h
+	$(CC) $(CFLAGS) -c point.c -o point.o
 
 
 clean :
