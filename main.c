@@ -14,20 +14,20 @@ int main(){
   pile tab;
   tab = loadFromfile("./example/ex1.txt"); */
 
-MLV_create_window("test","iconetest",1000,1000);
-/*MLV_draw_rectangle(50,100,400,450,MLV_COLOR_BLUE);*/
-mode_creation(1000,1000);
-mode_kppv(1000,1000);
-vakeur_k(1000, 1000,"lourd");
-rein_fenetre(1000, 1000);
-zone_affichage(1000, 1000);
-efface_dernier_point(1000, 1000);
-classe_manuel(1000, 1000);
-option_affichage(1000, 1000);
-voisinage(1000, 1000);
-avec_prise_decision(1000, 1000);
-save_donnees(1000, 1000);
-charge_fichier(1000,1000);
+MLV_create_window("P","iconetest",1280,720);
+MLV_clear_window( MLV_COLOR_GREY20);
+mode_creation(1280,720);
+mode_kppv(1280,720);
+vakeur_k(1280, 720,"valeur de K");
+rein_fenetre(1280,720);
+zone_affichage(1280,720);
+efface_dernier_point(1280,720);
+classe_manuel(1280,720);
+option_affichage(1280,720);
+voisinage(1280,720);
+avec_prise_decision(1280,720);
+save_donnees(1280,720);
+charge_fichier(1280,720);
 
 MLV_actualise_window();
 MLV_wait_seconds(20);

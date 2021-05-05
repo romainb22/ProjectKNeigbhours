@@ -1,16 +1,12 @@
 #include "affichage.h"
 #include <MLV/MLV_all.h>
 
-
-/* je considere que la taille de la fenetre 1000 1000 */
-/* a partir de l'ecran avec 50 pixel */
-/* x et y les coordonees de la fenetre */
 void mode_creation(int x, int y){
     char c[20]="mode creation";
     int width_text,height_text,positionX;
     MLV_get_size_of_text( c, &width_text, &height_text );
     positionX = x/50;
-    MLV_draw_text(positionX,y/100,c,MLV_COLOR_ORANGE);
+    MLV_draw_adapted_text_box(positionX,y/100,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 }
 
 void mode_kppv(int x, int y){
@@ -18,44 +14,44 @@ void mode_kppv(int x, int y){
     int width_text,height_text,positionX;
     MLV_get_size_of_text( c, &width_text, &height_text );
     positionX = (x-width_text)/9+width_text;
-    MLV_draw_text(positionX,y/100,c,MLV_COLOR_ORANGE);
+    MLV_draw_adapted_text_box(positionX,y/100,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+
 }
 
 void vakeur_k(int x, int y,char * s){
     int width_text,height_text,positionX;
-    MLV_get_size_of_text( s, &width_text, &height_text );
+    MLV_get_size_of_text( s,&width_text,&height_text );
     positionX = (x-width_text)/2-width_text;
-    MLV_draw_text(positionX,y/100,s,MLV_COLOR_ORANGE);
+    MLV_draw_adapted_text_box(positionX,y/100,s,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+
 }
 
 void rein_fenetre(int x, int y){
     char c[40]="reinitialisation de la fenetre";
     int width_text,height_text,positionX;
-    MLV_get_size_of_text( c, &width_text, &height_text );
-    positionX = (x-width_text-5);
-    MLV_draw_text(positionX,y%3,c,MLV_COLOR_ORANGE);
+    MLV_get_size_of_text( c,&width_text,&height_text );
+    positionX = (x-width_text-20);
+    MLV_draw_adapted_text_box(positionX,y%3,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+
 }
 
 void zone_affichage(int x, int y){
 
 
-    MLV_draw_line(x/50,y/20,x/2,y/20,MLV_COLOR_BLUE);/* x1,y1 debut x2,y2 fin color */
+    MLV_draw_rectangle(x/50,y/20,x/1.5,650,MLV_COLOR_WHITE);
+    MLV_draw_line(13,y/20,x/1.5,650,MLV_COLOR_WHITE);
 
-    MLV_draw_line(x/2,y/20,x/2,y/1.1,MLV_COLOR_BLUE);
-
-    MLV_draw_line(x/2,y/1.1,x/50,y/1.1,MLV_COLOR_BLUE);
-
-    MLV_draw_line(x/50,y/1.1,x/50,y/20,MLV_COLOR_BLUE);
 }
 
 void efface_dernier_point(int x, int y){
     char c[50]="Effacement du dernier point en mode decision";
-    MLV_draw_text(x/2+2,y/20,c,MLV_COLOR_ORANGE);
+    MLV_draw_adapted_text_box(x/2+240,y/20,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+
 }
 
 void classe_manuel(int x, int y){
     char c[50]="classer mauellement mode creation";
-    MLV_draw_text(x/2+2,y/10,c,MLV_COLOR_ORANGE);
+    MLV_draw_adapted_text_box(x/2+240,y/20,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 }
 
 void option_affichage(int x, int y){
@@ -63,39 +59,40 @@ void option_affichage(int x, int y){
     int width_text,height_text,positionX;
     MLV_get_size_of_text( c, &width_text, &height_text );
     positionX = (x*0.78);
-    MLV_draw_text(positionX,y/3,c,MLV_COLOR_ORANGE);
+    MLV_draw_adapted_text_box(positionX,y/3,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+
 }
 
 void voisinage(int x, int y){
     char c[20]=" voisinage";
     int width_text,height_text,positionX;
-    MLV_get_size_of_text( c, &width_text, &height_text );
+    MLV_get_size_of_text( c,&width_text,&height_text );
     positionX = (x*0.75);
-    MLV_draw_text(positionX,y/2.6,c,MLV_COLOR_ORANGE);
+    MLV_draw_adapted_text_box(positionX,y/2.6,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 }
 
 void avec_prise_decision(int x, int y){
     char c[25]=" avec prise de decision";
     int width_text,height_text,positionX;
-    MLV_get_size_of_text( c, &width_text, &height_text );
+    MLV_get_size_of_text( c,&width_text,&height_text );
     positionX = (x*0.75);
-    MLV_draw_text(positionX,y/2.3,c,MLV_COLOR_ORANGE);
+    MLV_draw_adapted_text_box(positionX,y/2.3,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 }
 
 void save_donnees(int x, int y){
     char c[50]="sauvegarde de donnees entrees";
     int width_text,height_text,positionX;
-    MLV_get_size_of_text( c, &width_text, &height_text );
+    MLV_get_size_of_text( c,&width_text,&height_text );
     positionX = (x*0.975)-width_text;
-    MLV_draw_text(positionX,y*0.95,c,MLV_COLOR_ORANGE);
+    MLV_draw_adapted_text_box(positionX,y*0.95,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 }
 
 void charge_fichier(int x, int y){
     char c[50]="chargement d'un fichier mode creation";
     int width_text,height_text,positionX;
-    MLV_get_size_of_text( c, &width_text, &height_text );
+    MLV_get_size_of_text( c,&width_text,&height_text );
     positionX = (x*0.975)-width_text;
-    MLV_draw_text(positionX,y*0.9,c,MLV_COLOR_ORANGE);
+    MLV_draw_adapted_text_box(positionX,y*0.9,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 }
 
 /*void test_mouse(int x, int y, int largeur, int hauteur){
