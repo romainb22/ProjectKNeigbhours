@@ -26,7 +26,7 @@ int initPoint(point * myPoint, double x, double y, int class){
 
 int setX(struct point * this, double x){
   if(x>MAX || x<MIN){
-    printf("Coordonées non recevables");
+    printf("Coordonées non recevables !\n");
     return 0;
   }
   this->x = x;
@@ -35,7 +35,7 @@ int setX(struct point * this, double x){
 
 int setY(struct point * this, double y){
   if(y>MAX || y<MIN){
-    printf("Coordonées non recevables");
+    printf("Coordonées non recevables !\n");
     return 0;
   }
   this->y = y;

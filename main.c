@@ -6,6 +6,7 @@
 #include "pile.h"
 #include "load.h"
 #include "affichage.h"
+#include "save.h"
 #include <MLV/MLV_all.h>
 #define LARGEUR 1300
 #define HAUTEUR 720
@@ -15,6 +16,7 @@ int main(){
   srand(time(NULL));
   pile tab;
   tab = loadFromfile("./example/ex1.txt");
+  saveFromTab("./saves/save1.txt", tab, 2,2);
 
 MLV_create_window("P","iconetest",LARGEUR,HAUTEUR);
 MLV_clear_window( MLV_COLOR_GREY20);

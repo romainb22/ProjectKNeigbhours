@@ -11,7 +11,9 @@ pile loadFromfile(char * path){
   int i,classe;
   float x,y;
   pile myTab = pile_vide();
+  point * p;
 
+  p=newPoint();
   f=fopen(path,"r");
   i = -1;
   if (f!=NULL){
@@ -22,9 +24,14 @@ pile loadFromfile(char * path){
       else{
         sscanf(c,"%d %f %f\n", &classe, &x, &y);
         printf("%d %f %f\n", classe, x, y);
-        myTab = empiler(myTab,newPoint());
-        if(initPoint(myTab->objet, x, y, classe)==0){
-          printf("Erreur d'initialisation !");
+        if(!setX(p, x) || !setY(p, y)){
+          /* Do nothing */
+        }
+        else{
+          myTab = empiler(myTab,newPoint());
+          if(initPoint(myTab->objet, x, y, classe)==0){
+            printf("Erreur d'initialisation !");
+          }
         }
       }
       i++;

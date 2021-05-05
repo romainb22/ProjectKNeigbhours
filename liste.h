@@ -25,6 +25,9 @@ liste inserer_element_liste(liste l, element elem);
 /* renvoie le premier element de la liste l */
 element renvoie_premier_liste(liste l);
 
+/* renvoie le dernier elemenet de la liste l */
+element renvoie_dernier_liste(liste l);
+
 /* supprime la premiere cellule de la liste l */
 liste supprimer_premier_liste(liste l);
 
