@@ -1,18 +1,18 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "tableau.h"
+#include "pile.h"
 #include "point.h"
 #include "load.h"
 #define MAX_LINE_LENGTH 15
 
-tableau * loadFromfile(char * path){
+pile loadFromfile(char * path){
   FILE *f = NULL;
   char c[MAX_LINE_LENGTH];
   int nbPoints, dimension, nbClasses,i,classe;
   float x,y;
-  tableau * myTab;
+  pile * myTab = pile_vide();
 
-  i = -1;
+  /*i = -1;
   f = fopen(path,"r");
   if (f==NULL){
     perror("ERROR");
@@ -26,7 +26,7 @@ tableau * loadFromfile(char * path){
     i++;
   }
   fclose(f);
-  myTab = newTable(nbPoints);
+  myTab = newTable(nbPoints);*/
   f=fopen(path,"r");
   i = -1;
   if (f!=NULL){
@@ -37,7 +37,7 @@ tableau * loadFromfile(char * path){
       else{
         sscanf(c,"%d %f %f\n", &classe, &x, &y);
         printf("%d %f %f\n", classe, x, y);
-        addPoint(myTab,newPoint(x, y, classe)); /* SIGSEV from here */
+        myTab = empiler(myTab,newPoint(x, y, classe)); /* SIGSEV from here */
       }
       i++;
     }

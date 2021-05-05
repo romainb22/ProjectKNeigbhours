@@ -3,10 +3,10 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "tableau.h"
+#include "pile.h"
 #include "point.h"
 #include "load.h"
 
-tableau * loadFromfile(char *);
+pile loadFromfile(char *);
 
 #endif
