@@ -15,8 +15,6 @@ pile depiler(pile p);
 
 element sommet_pile(pile p);
 
-element sommet_file(pile p);
-
 int taille_pile(pile p);
 
 #endif
