@@ -32,18 +32,6 @@ element renvoie_premier_liste(liste l){
   return l->objet;
 }
 
-element renvoie_dernier_liste(liste l){
-  liste ma_liste = liste_vide();
-  if(est_liste_vide(l)){
-    printf("Erreur, la liste passée en paramètre est vide !\n");
-  }
-  ma_liste = l;
-  while(ma_liste->suivant != NULL){
-    ma_liste->objet = ma_liste->suivant;
-  }
-  return ma_liste->objet;
-}
-
 liste supprimer_premier_liste(liste l){
   liste lsuivant = l->suivant;
   free(l);
