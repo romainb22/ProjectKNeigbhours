@@ -107,3 +107,18 @@ void charge_fichier(int x, int y){
         MLV_draw_text(largeur/2,hauteur/2,"mode kppv pressed",MLV_COLOR_CYAN);
     }
 }*/
+
+int creer_boutton(int x,int y,int x_zone,int y_zone,int largeur_boutton,int hauteur_boutton){
+  if ((x > x_zone)&&(x < (x_zone+largeur_boutton))) {
+    if ((y > x_zone)&&(y < (y_zone+hauteur_boutton))){
+      return 1;
+    }
+  }
+  return 0;
+}
+
+void ajouter_point(int x,int y,){
+  if (creer_boutton(x,y,x/50),y/20,650,650) {
+    /* code */
+  }
+}
