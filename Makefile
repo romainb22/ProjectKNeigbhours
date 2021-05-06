@@ -7,11 +7,11 @@ LDLIBS = `pkg-config --libs-only-l MLV`
 
 
 
-main :pile.o liste.o load.o affichage.o point.o main.o save.o
-	$(CC) $(CFLAGS) $(LDFLAGS) pile.o liste.o load.o affichage.o point.o save.o main.o $(LDLIBS) -o main
+main :pile.o liste.o load.o affichage.o point.o main.o save.o neighbours.o
+	$(CC) $(CFLAGS) $(LDFLAGS) pile.o liste.o load.o affichage.o point.o save.o main.o neighbours.o $(LDLIBS) -o main
 
-main.o : pile.c load.c liste.c affichage.c point.c main.c
-	$(CC) $(CFLAGS) -c main.c pile.c load.c liste.c affichage.c point.c
+main.o : pile.c load.c liste.c affichage.c point.c main.c save.c neighbours.c
+	$(CC) $(CFLAGS) -c main.c pile.c load.c liste.c affichage.c point.c neighbours.c
 
 load.o : load.c load.h
 	$(CC) $(CFLAGS) -c load.c -o load.o
@@ -30,6 +30,9 @@ pile.o : pile.c pile.h
 
 point.o : point.c point.h
 	$(CC) $(CFLAGS) -c point.c -o point.o
+
+neigbhours.o : neighbours.c neighbours.h
+	$(CC) $(CFLAGS) -c neighbours.c -o neighbours.o
 
 
 clean :

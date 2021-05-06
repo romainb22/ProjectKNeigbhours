@@ -7,6 +7,7 @@
 #include "load.h"
 #include "affichage.h"
 #include "save.h"
+#include "neighbours.h"
 #include <MLV/MLV_all.h>
 #define LARGEUR 1300
 #define HAUTEUR 720
@@ -15,9 +16,12 @@
 int main(){
   int x,y;
   srand(time(NULL));
-  pile tab;
+  pile tab, tab2;
   tab = loadFromfile("./example/ex1.txt");
-  saveFromTab("./saves/save1.txt", tab, 2,2);
+  saveFromTab("./saves/save1.txt", tab, 2, 2);
+  tab2 = kNearestNeighbours(tab, 2, tab->objet);
+  saveFromTab(".saves/save2.txt", tab, 2, 2);
+
 
 MLV_create_window("KPPV","iconetest",LARGEUR,HAUTEUR);
 MLV_clear_window( MLV_COLOR_GREY20);
