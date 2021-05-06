@@ -10,3 +10,5 @@ void voisinage(int x, int y);
 void avec_prise_decision(int x, int y);
 void save_donnees(int x, int y);
 void charge_fichier(int x, int y);
+int creer_boutton(int x,int y,int x_zone,int y_zone,int largeur_boutton,int hauteur_boutton);
+void ajouter_point(int x,int y);

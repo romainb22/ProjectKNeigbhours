@@ -96,29 +96,30 @@ void charge_fichier(int x, int y){
     MLV_draw_adapted_text_box(positionX,y*0.9,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 }
 
-/*void test_mouse(int x, int y, int largeur, int hauteur){
-
-    if ( (x>=(largeur/50) && x<=(largeur/50)+100) &&
-         (y>=(hauteur/100) && y<=(hauteur/100)+15)){
-        MLV_draw_text(largeur/2,hauteur/2,"mode creation pressed",MLV_COLOR_BLUE);
+/*void ajouter_point(int x,int y){
+  int click = 0;
+  MLV_wait_mouse(&x,&y);
+  if (creer_boutton(x,y,x/50,y/20,650,650)) {
+    while (click == 0){
+      MLV_draw_point(x,y,MLV_COLOR_RED);
+      MLV_actualise_window();
+      if (!creer_boutton(x,y,x/50,y/20,650,650)){
+        click = 1;
+      }
     }
-    else if ( (x>=(largeur-75)/9+75 && x<=(((largeur-75)/9+75) + 75) &&
-               (y>=hauteur/100 && y<=(hauteur/100)+15))){
-        MLV_draw_text(largeur/2,hauteur/2,"mode kppv pressed",MLV_COLOR_CYAN);
-    }
+  }
 }*/
+void ajouter_point(int x,int y){
+  MLV_draw_point(x,y,MLV_COLOR_RED);
+  MLV_actualise_window();
+}
 
 int creer_boutton(int x,int y,int x_zone,int y_zone,int largeur_boutton,int hauteur_boutton){
   if ((x > x_zone)&&(x < (x_zone+largeur_boutton))) {
     if ((y > x_zone)&&(y < (y_zone+hauteur_boutton))){
+      ajouter_point(x,y);
       return 1;
     }
   }
   return 0;
-}
-
-void ajouter_point(int x,int y,){
-  if (creer_boutton(x,y,x/50),y/20,650,650) {
-    /* code */
-  }
 }

@@ -13,12 +13,13 @@
 #define MAX_LINE_LENGTH 15
 
 int main(){
+  int x,y;
   srand(time(NULL));
   pile tab;
   tab = loadFromfile("./example/ex1.txt");
   saveFromTab("./saves/save1.txt", tab, 2,2);
 
-MLV_create_window("P","iconetest",LARGEUR,HAUTEUR);
+MLV_create_window("KPPV","iconetest",LARGEUR,HAUTEUR);
 MLV_clear_window( MLV_COLOR_GREY20);
 mode_creation(LARGEUR,HAUTEUR);
 mode_kppv(LARGEUR,HAUTEUR);
@@ -32,6 +33,11 @@ voisinage(LARGEUR,HAUTEUR);
 avec_prise_decision(LARGEUR,HAUTEUR);
 save_donnees(LARGEUR,HAUTEUR);
 charge_fichier(LARGEUR,HAUTEUR);
+int click = 0;
+while (click == 0){
+  MLV_wait_mouse(&x,&y);
+  creer_boutton(LARGEUR,HAUTEUR,26,36,650,650);
+}
 
 MLV_actualise_window();
 MLV_wait_seconds(360);
