@@ -14,6 +14,7 @@
 
 int main(){
   int x,y;
+  int click=1;
   srand(time(NULL));
   pile tab;
   tab = loadFromfile("./example/ex1.txt");
@@ -24,7 +25,7 @@ MLV_clear_window( MLV_COLOR_GREY20);
 mode_creation(LARGEUR,HAUTEUR);
 mode_kppv(LARGEUR,HAUTEUR);
 vakeur_k(LARGEUR, HAUTEUR,"valeur de K");
-rein_fenetre(LARGEUR,HAUTEUR);
+reinitialisation_fenetre(LARGEUR,HAUTEUR);
 zone_affichage(LARGEUR,HAUTEUR);
 efface_dernier_point(LARGEUR,HAUTEUR);
 classe_manuel(LARGEUR,HAUTEUR);
@@ -33,13 +34,12 @@ voisinage(LARGEUR,HAUTEUR);
 avec_prise_decision(LARGEUR,HAUTEUR);
 save_donnees(LARGEUR,HAUTEUR);
 charge_fichier(LARGEUR,HAUTEUR);
-int click = 0;
-while (click == 0){
-  MLV_wait_mouse(&x,&y);
-  creer_boutton(LARGEUR,HAUTEUR,26,36,650,650);
-}
-
 MLV_actualise_window();
+while(click == 1){
+  verif_position(x,y);
+  ajouter_point(x,y);
+  MLV_actualise_window();
+}
 MLV_wait_seconds(360);
 MLV_free_window();
 

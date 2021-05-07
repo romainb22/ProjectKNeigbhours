@@ -26,7 +26,7 @@ void vakeur_k(int x, int y,char * s){
 
 }
 
-void rein_fenetre(int x, int y){
+void reinitialisation_fenetre(int x, int y){
     char c[40]="reinitialisation de la fenetre";
     int width_text,height_text,positionX;
     MLV_get_size_of_text( c,&width_text,&height_text );
@@ -109,17 +109,28 @@ void charge_fichier(int x, int y){
     }
   }
 }*/
-void ajouter_point(int x,int y){
-  MLV_draw_point(x,y,MLV_COLOR_RED);
-  MLV_actualise_window();
-}
 
 int creer_boutton(int x,int y,int x_zone,int y_zone,int largeur_boutton,int hauteur_boutton){
   if ((x > x_zone)&&(x < (x_zone+largeur_boutton))) {
     if ((y > x_zone)&&(y < (y_zone+hauteur_boutton))){
-      ajouter_point(x,y);
       return 1;
     }
   }
   return 0;
+}
+
+
+void ajouter_point(int x,int y){
+  MLV_wait_mouse(&x,&y);
+  if (creer_boutton(x,y,x/50,y/20,650,650)){
+    MLV_draw_filled_circle(x,y,2,MLV_COLOR_RED);
+    MLV_actualise_window();
+  }
+}
+
+void verif_position(int x,int y){
+  MLV_wait_mouse(&x,&y);
+  if (creer_boutton(x,y,x/50,y/100,100,10)){
+    ajouter_point(x,y);
+  }
 }

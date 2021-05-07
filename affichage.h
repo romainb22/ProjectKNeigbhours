@@ -1,7 +1,7 @@
 void mode_creation(int x, int y);
 void mode_kppv(int x, int y);
 void vakeur_k(int x, int y,char * s);
-void rein_fenetre(int x, int y);
+void reinitialisation_fenetre(int x, int y);
 void zone_affichage(int x, int y);
 void efface_dernier_point(int x, int y);
 void classe_manuel(int x, int y);
@@ -12,3 +12,4 @@ void save_donnees(int x, int y);
 void charge_fichier(int x, int y);
 int creer_boutton(int x,int y,int x_zone,int y_zone,int largeur_boutton,int hauteur_boutton);
 void ajouter_point(int x,int y);
+void verif_position(int x,int y);
