@@ -3,7 +3,7 @@
 #include "pile.h"
 #include "point.h"
 #include "neighbours.h"
-
+/*
 pile kNearestNeighbours(pile myTab, int k, point * p){
   pile res, trans, myTabPtr, transPtr, nearestPtr;
   res = pile_vide();
@@ -49,5 +49,6 @@ pile kNearestNeighbours(pile myTab, int k, point * p){
     trans->suivant = trans->suivant->suivant; //supression du point le plus proche dans la liste de transition.
     trans = depiler(trans); // faut-t'il dépiler pour correspondre ?
   }
-  return res;
+  return 0;//res;
 }
+*/

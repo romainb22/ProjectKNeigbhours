@@ -6,6 +6,6 @@
 #include "pile.h"
 #include "point.h"
 
-pile loadFromfile(char *);
+pile * loadFromfile(char *);
 
 #endif

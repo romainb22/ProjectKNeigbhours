@@ -5,12 +5,12 @@
 #include "load.h"
 #define MAX_LINE_LENGTH 15
 
-pile loadFromfile(char * path){
+pile * loadFromfile(char * path){
   FILE *f = NULL;
   char c[MAX_LINE_LENGTH];
   int i,classe;
   float x,y;
-  pile myTab = pile_vide();
+  pile * myTab = pile_vide();
   point * p;
 
   p=newPoint();
@@ -29,7 +29,7 @@ pile loadFromfile(char * path){
         }
         else{
           myTab = empiler(myTab,newPoint());
-          if(initPoint(myTab->objet, x, y, classe)==0){
+          if(initPoint(myTab->maPile->objet, x, y, classe)==0){
             printf("Erreur d'initialisation !");
           }
         }

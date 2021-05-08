@@ -6,6 +6,6 @@
 #include "pile.h"
 #include "point.h"
 
-void saveFromTab(char *, pile, int, int);
+void saveFromTab(char *, pile *, int, int);
 
 #endif

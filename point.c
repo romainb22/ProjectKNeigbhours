@@ -24,6 +24,15 @@ int initPoint(point * myPoint, double x, double y, int class){
 }
 
 
+int initPointFromClick(point* myPoint, double * coord){
+  if(!setX(myPoint, coord[0]) || !setY(myPoint, coord[1])){
+    return 0;
+  }
+  setClass(myPoint, -1);
+  return 1;
+}
+
+
 int setX(struct point * this, double x){
   if(x>MAX || x<MIN){
     printf("Coordonées non recevables !\n");

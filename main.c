@@ -14,15 +14,15 @@
 #define MAX_LINE_LENGTH 15
 
 int main(){
-  int x,y;
-  int click=1;
+  int x,y,click;
+  x=y=click=1;
   srand(time(NULL));
-  pile tab, tab2;
+  pile * tab;//, tab2;
+  point * myPoint;
   tab = loadFromfile("./example/ex1.txt");
-  saveFromTab("./saves/save1.txt", tab, 2, 2);
-  tab2 = kNearestNeighbours(tab, 2, tab->objet);
+  /*tab2 = kNearestNeighbours(tab, 2, tab->objet);
   saveFromTab(".saves/save2.txt", tab, 2, 2);
-
+*/
 
 MLV_create_window("KPPV","iconetest",LARGEUR,HAUTEUR);
 MLV_clear_window( MLV_COLOR_GREY20);
@@ -40,10 +40,13 @@ save_donnees(LARGEUR,HAUTEUR);
 charge_fichier(LARGEUR,HAUTEUR);
 MLV_actualise_window();
 while(click == 1){
-  verif_position(x,y);
-  ajouter_point(x,y);
+  //verif_position(x,y);
+  myPoint = newPoint();
+  initPointFromClick(myPoint, verif_position(x,y));
+  tab = empiler(tab, myPoint);
   MLV_actualise_window();
 }
+saveFromTab("./saves/save1.txt", tab, 2, 2);
 MLV_wait_seconds(360);
 MLV_free_window();
 

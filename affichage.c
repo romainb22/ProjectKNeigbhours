@@ -1,5 +1,8 @@
+#include <string.h>
 #include "affichage.h"
 #include <MLV/MLV_all.h>
+#define WINDOW_WIDTH 1300
+#define WINDOW_HEIGHT 720
 
 void mode_creation(int x, int y){
     char c[20]="mode creation";
@@ -36,7 +39,6 @@ void reinitialisation_fenetre(int x, int y){
 }
 
 void zone_affichage(int x, int y){
-
 
     MLV_draw_rectangle(x/50,y/20,650,650,MLV_COLOR_WHITE);
     MLV_draw_line(x/50+325,y/20,x/50+325,y/20+650,MLV_COLOR_WHITE);
@@ -112,7 +114,7 @@ void charge_fichier(int x, int y){
 
 int creer_boutton(int x,int y,int x_zone,int y_zone,int largeur_boutton,int hauteur_boutton){
   if ((x > x_zone)&&(x < (x_zone+largeur_boutton))) {
-    if ((y > x_zone)&&(y < (y_zone+hauteur_boutton))){
+    if ((y > y_zone)&&(y < (y_zone+hauteur_boutton))){
       return 1;
     }
   }
@@ -120,17 +122,42 @@ int creer_boutton(int x,int y,int x_zone,int y_zone,int largeur_boutton,int haut
 }
 
 
-void ajouter_point(int x,int y){
-  MLV_wait_mouse(&x,&y);
-  if (creer_boutton(x,y,x/50,y/20,650,650)){
+double * ajouter_point(int x,int y){
+  double * d;
+  d = malloc(sizeof(double)*2);
+  d[0] = 5.0;
+  d[1] = 5.0;
+  if (creer_boutton(x,y,WINDOW_WIDTH/50,WINDOW_HEIGHT/20,650,650)){
     MLV_draw_filled_circle(x,y,2,MLV_COLOR_RED);
     MLV_actualise_window();
+    d[0] = convert_X(x);
+    d[1] = convert_Y(y);
   }
+  return d;
 }
 
-void verif_position(int x,int y){
+double * verif_position(int x,int y){
   MLV_wait_mouse(&x,&y);
-  if (creer_boutton(x,y,x/50,y/100,100,10)){
-    ajouter_point(x,y);
+  double * def;
+  def = malloc(sizeof(double)*2);
+  def[0] = 5.0;
+  def[1] = 5.0;
+  if(x>25 && y>36){
+    if (creer_boutton(x,y,WINDOW_WIDTH/50,WINDOW_HEIGHT/20,650,650)){
+      return ajouter_point(x,y);
+    }
   }
+  else{
+    /* on est en dehors de la zone */
+  }
+  return def;
+}
+
+double convert_X(int x){
+  return (x-351)/325.0;
+}
+
+
+double convert_Y(int y){
+  return (351-y)/325.0;
 }

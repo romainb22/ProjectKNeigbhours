@@ -3,18 +3,21 @@
 
 #include "liste.h"
 
-typedef liste pile;
+typedef struct pile{
+  liste maPile;
+  element * premier;
+}pile;
 
-pile pile_vide();
+pile * pile_vide();
 
-int est_pile_vide(pile p);
+int est_pile_vide(pile * p);
 
-pile empiler(pile p,element e);
+pile * empiler(pile * p,element e);
 
-pile depiler(pile p);
+pile * depiler(pile * p);
 
-element sommet_pile(pile p);
+element sommet_pile(pile * p);
 
-int taille_pile(pile p);
+int taille_pile(pile * p);
 
 #endif

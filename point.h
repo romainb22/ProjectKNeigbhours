@@ -14,6 +14,8 @@ struct point * newPoint();
 
 int initPoint(struct point*, double, double, int);
 
+int initPointFromClick(struct point*, double *);
+
 int setX(struct point*, double);
 
 int setY(struct point*, double);
