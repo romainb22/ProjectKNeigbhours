@@ -90,27 +90,23 @@ void save_donnees(int x, int y){
     MLV_draw_adapted_text_box(positionX,y*0.95,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 }
 
-void charge_fichier(int x, int y){
+char * charge_fichier(int x, int y){
+    MLV_Input_box *input_box;
+    MLV_Keyboard_button touche;
+    char * text;
     char c[50]="chargement d'un fichier mode creation";
     int width_text,height_text,positionX;
-    MLV_get_size_of_text( c, &width_text,&height_text );
+    MLV_get_size_of_text( c, &width_text,&height_text);
     positionX = (x*0.975)-width_text;
-    MLV_draw_adapted_text_box(positionX,y*0.9,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
-}
-
-/*void ajouter_point(int x,int y){
-  int click = 0;
-  MLV_wait_mouse(&x,&y);
-  if (creer_boutton(x,y,x/50,y/20,650,650)) {
-    while (click == 0){
-      MLV_draw_point(x,y,MLV_COLOR_RED);
-      MLV_actualise_window();
-      if (!creer_boutton(x,y,x/50,y/20,650,650)){
-        click = 1;
-      }
+    input_box=MLV_create_input_box(positionX,y*0.9,300,25,MLV_COLOR_WHITE,MLV_COLOR_RED,MLV_COLOR_BLACK,c);
+    MLV_draw_all_input_boxes();
+    if( MLV_get_event (&touche, NULL, NULL,NULL, NULL,NULL, NULL, NULL,NULL) == MLV_NONE || touche == MLV_KEYBOARD_RETURN){
+      return text;
+      //MLV_draw_adapted_text_box(positionX,y*0.9,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
     }
-  }
-}*/
+    MLV_actualise_window();
+    return "/";
+}
 
 int creer_boutton(int x,int y,int x_zone,int y_zone,int largeur_boutton,int hauteur_boutton){
   if ((x > x_zone)&&(x < (x_zone+largeur_boutton))) {
@@ -120,6 +116,9 @@ int creer_boutton(int x,int y,int x_zone,int y_zone,int largeur_boutton,int haut
   }
   return 0;
 }
+
+
+
 
 
 double * ajouter_point(int x,int y){

@@ -19,7 +19,11 @@ int main(){
   srand(time(NULL));
   pile * tab;//, tab2;
   point * myPoint;
-  tab = loadFromfile("./example/ex1.txt");
+  char * path = malloc(sizeof(char *));
+  if (path == NULL){
+    printf("malloc mal passé\n");
+  }
+  tab = loadFromfile(charge_fichier(LARGEUR,HAUTEUR));
   /*tab2 = kNearestNeighbours(tab, 2, tab->objet);
   saveFromTab(".saves/save2.txt", tab, 2, 2);
 */
