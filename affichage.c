@@ -91,17 +91,17 @@ void save_donnees(int x, int y){
 }
 
 char * charge_fichier(int x, int y){
-    MLV_Input_box *input_box;
+    //MLV_Input_box *input_box;
     MLV_Keyboard_button touche;
     char * text;
     char c[50]="chargement d'un fichier mode creation";
-    int width_text,height_text,positionX;
-    MLV_get_size_of_text( c, &width_text,&height_text);
-    positionX = (x*0.975)-width_text;
-    input_box=MLV_create_input_box(positionX,y*0.9,300,25,MLV_COLOR_WHITE,MLV_COLOR_RED,MLV_COLOR_BLACK,c);
-    MLV_draw_all_input_boxes();
+    //int width_text,height_text,positionX;
+    //MLV_get_size_of_text( c, &width_text,&height_text);
+    //positionX = (x*0.975)-width_text;
+    //input_box=MLV_create_input_box(x,(int)y*0.9,300,25,MLV_COLOR_WHITE,MLV_COLOR_RED,MLV_COLOR_BLACK,c);
+    //MLV_draw_all_input_boxes();
     if( MLV_get_event (&touche, NULL, NULL,NULL, NULL,NULL, NULL, NULL,NULL) == MLV_NONE || touche == MLV_KEYBOARD_RETURN){
-      return text;
+      return "yes";
       //MLV_draw_adapted_text_box(positionX,y*0.9,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
     }
     MLV_actualise_window();
