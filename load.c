@@ -23,7 +23,6 @@ pile * loadFromfile(char * path){
       }
       else{
         sscanf(c,"%d %f %f\n", &classe, &x, &y);
-        printf("%d %f %f\n", classe, x, y);
         if(!setX(p, x) || !setY(p, y)){
           /* Do nothing */
         }

@@ -17,16 +17,13 @@ int main(){
   int x,y,click;
   x=y=click=1;
   srand(time(NULL));
-  pile * tab;//, tab2;
+  pile * tab;
   point * myPoint;
   char * path = malloc(sizeof(char *));
   if (path == NULL){
     printf("malloc mal passé\n");
   }
-  tab = loadFromfile(charge_fichier(LARGEUR,HAUTEUR));
-  /*tab2 = kNearestNeighbours(tab, 2, tab->objet);
-  saveFromTab(".saves/save2.txt", tab, 2, 2);
-*/
+  tab = loadFromfile("example/ex1.txt");
 
 MLV_create_window("KPPV","iconetest",LARGEUR,HAUTEUR);
 MLV_clear_window( MLV_COLOR_GREY20);
