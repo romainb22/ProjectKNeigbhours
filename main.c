@@ -14,6 +14,7 @@
 #define MAX_LINE_LENGTH 15
 
 int main(){
+  int mode;
   int x,y,click;
   x=y=click=1;
   srand(time(NULL));
@@ -25,31 +26,59 @@ int main(){
   }
   tab = loadFromfile("example/ex1.txt");
 
-MLV_create_window("KPPV","iconetest",LARGEUR,HAUTEUR);
-MLV_clear_window( MLV_COLOR_GREY20);
-mode_creation(LARGEUR,HAUTEUR);
-mode_kppv(LARGEUR,HAUTEUR);
-vakeur_k(LARGEUR, HAUTEUR,"valeur de K");
-reinitialisation_fenetre(LARGEUR,HAUTEUR);
-zone_affichage(LARGEUR,HAUTEUR);
-efface_dernier_point(LARGEUR,HAUTEUR);
-classe_manuel(LARGEUR,HAUTEUR);
-option_affichage(LARGEUR,HAUTEUR);
-voisinage(LARGEUR,HAUTEUR);
-avec_prise_decision(LARGEUR,HAUTEUR);
-save_donnees(LARGEUR,HAUTEUR);
-charge_fichier(LARGEUR,HAUTEUR);
+general_window(LARGEUR,HAUTEUR,"mode creation","valeur de k");
 MLV_actualise_window();
-while(click == 1){
-  //verif_position(x,y);
-  myPoint = newPoint();
-  initPointFromClick(myPoint, verif_position(x,y));
-  tab = empiler(tab, myPoint);
+MLV_draw_rectangle(x/50+650,154,650,20,MLV_COLOR_WHITE);
+//MLV_draw_rectangle(x/50+650,y/5+20,650,20,MLV_COLOR_RED);
+//MLV_draw_rectangle(x/50+650,y/4+20,650,20,MLV_COLOR_GREEN);
+//MLV_draw_rectangle(x/50+650,y/1.2+20,650,20,MLV_COLOR_YELLOW);
+//MLV_draw_rectangle(x/50+650,y/1.1+20,650,20,MLV_COLOR_BROWN);
+MLV_actualise_window();
+
+
+
+while (1) {
+  printf("%d\n",mode);
   MLV_actualise_window();
-}
-saveFromTab("./saves/save1.txt", tab, 2, 2);
-MLV_wait_seconds(360);
-MLV_free_window();
+  mode = 0;
+  mode=change_mode();
+  switch (mode) {
+    case 1 :
+      //wip
+      break;
+    case 2:
+      //wip
+      break;
+    case 3:
+      while (1) {
+        if (change_mode() == 3){
+          break;
+        }
+        MLV_wait_mouse(&x,&y);
+        ajouter_point(x,y);
+        myPoint = newPoint();
+        initPointFromClick(myPoint, verif_position(x,y));
+        tab = empiler(tab, myPoint);
+        MLV_actualise_window();
+      }
+
+    case 4:
+      //wip
+      break;
+    case 5:
+      saveFromTab("./saves/save1.txt", tab, 2, 2);
+      break;
+    case 6:
+      MLV_free_window();
+      general_window(LARGEUR,HAUTEUR,"mode creation","valeur de k");
+      break;
+    default:
+      break;
+
+    }
+  }
+  MLV_wait_seconds(360);
+  MLV_free_window();
 
 
 exit(EXIT_SUCCESS);

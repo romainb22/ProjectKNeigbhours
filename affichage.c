@@ -4,37 +4,24 @@
 #define WINDOW_WIDTH 1300
 #define WINDOW_HEIGHT 720
 
-void mode_creation(int x, int y){
-    char c[20]="mode creation";
-    int width_text,height_text,positionX;
-    MLV_get_size_of_text( c, &width_text, &height_text );
-    positionX = x/50;
-    MLV_draw_adapted_text_box(positionX,y/100,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+void mode_creation(int x, int y,char * c){
+    MLV_draw_adapted_text_box(x/50+650,y/5,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 }
 
 void mode_kppv(int x, int y){
     char c[20]="mode KPPV";
-    int width_text,height_text,positionX;
-    MLV_get_size_of_text( c, &width_text, &height_text );
-    positionX = (x-width_text)/9+width_text;
-    MLV_draw_adapted_text_box(positionX,y/100,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+    MLV_draw_adapted_text_box(x/50+650,y/4,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 
 }
 
 void vakeur_k(int x, int y,char * s){
-    int width_text,height_text,positionX;
-    MLV_get_size_of_text( s,&width_text,&height_text );
-    positionX = (x-width_text)/2-width_text;
-    MLV_draw_adapted_text_box(positionX,y/100,s,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+    MLV_draw_adapted_text_box(x/50+300,y/100,s,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 
 }
 
 void reinitialisation_fenetre(int x, int y){
     char c[40]="reinitialisation de la fenetre";
-    int width_text,height_text,positionX;
-    MLV_get_size_of_text( c,&width_text,&height_text );
-    positionX = (x-width_text-20);
-    MLV_draw_adapted_text_box(positionX,y%3,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+    MLV_draw_adapted_text_box(x/50+650,y/1.1,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 
 }
 
@@ -59,8 +46,7 @@ void classe_manuel(int x, int y){
 
 void option_affichage(int x, int y){
     char c[20]="Options d'affichage";
-    int width_text,height_text,positionX;
-    MLV_get_size_of_text( c, &width_text, &height_text );
+    int positionX;
     positionX = (x*0.78);
     MLV_draw_adapted_text_box(positionX,y/3,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 
@@ -68,30 +54,25 @@ void option_affichage(int x, int y){
 
 void voisinage(int x, int y){
     char c[20]=" voisinage";
-    int width_text,height_text,positionX;
-    MLV_get_size_of_text( c,&width_text,&height_text );
+    int positionX;
     positionX = (x*0.75);
     MLV_draw_adapted_text_box(positionX,y/2.6,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 }
 
 void avec_prise_decision(int x, int y){
     char c[25]=" avec prise de decision";
-    int width_text,height_text,positionX;
-    MLV_get_size_of_text( c,&width_text,&height_text );
+    int positionX;
     positionX = (x*0.75);
     MLV_draw_adapted_text_box(positionX,y/2.3,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 }
 
 void save_donnees(int x, int y){
-    char c[50]="sauvegarde de donnees entrees";
-    int width_text,height_text,positionX;
-    MLV_get_size_of_text( c,&width_text,&height_text );
-    positionX = (x*0.975)-width_text;
-    MLV_draw_adapted_text_box(positionX,y*0.95,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
+    char c[50]="sauvegarder";
+    MLV_draw_adapted_text_box(x/50+650,y/1.2,c,MLV_COLOR_WHITE,0,MLV_COLOR_RED,MLV_COLOR_BLACK,MLV_TEXT_CENTER);
 }
 
-char * charge_fichier(int x, int y){
-    //MLV_Input_box *input_box;
+/*void charge_fichier(int x, int y){
+    MLV_Input_box *input_box;
     MLV_Keyboard_button touche;
     char * text;
     char c[50]="chargement d'un fichier mode creation";
@@ -106,7 +87,7 @@ char * charge_fichier(int x, int y){
     }
     MLV_actualise_window();
     return "/";
-}
+}*/
 
 int creer_boutton(int x,int y,int x_zone,int y_zone,int largeur_boutton,int hauteur_boutton){
   if ((x > x_zone)&&(x < (x_zone+largeur_boutton))) {
@@ -159,4 +140,50 @@ double convert_X(int x){
 
 double convert_Y(int y){
   return (351-y)/325.0;
+}
+
+
+void general_window(int x ,int y,char*c,char * s){
+  MLV_create_window("KPPV","iconetest",x,y);
+  MLV_clear_window( MLV_COLOR_GREY20);
+  mode_creation(x,y,c);
+  mode_kppv(x,y);
+  vakeur_k(x,y,s);
+  reinitialisation_fenetre(x,y);
+  zone_affichage(x,y);
+  efface_dernier_point(x,y);
+  classe_manuel(x,y);
+  option_affichage(x,y);
+  voisinage(x,y);
+  avec_prise_decision(x,y);
+  save_donnees(x,y);
+}
+
+
+int change_mode(){
+  int x,y;
+  MLV_wait_mouse(&x,&y);
+  if (x>x/50+650){
+    if ((y>32) && ((y<53))) {
+        return 1;
+      }
+      if (((y>59)&&(y<79))) {
+        return 2;
+      }
+      if (((y>134)&&(y<154))){
+        return 3;
+      }
+      if (((y>165)&&(y<185))){
+        return 4;
+      }
+      if (((y>600)&&(y<620))){
+        return 5;
+      }
+      if (((y>653)&&(y<673))){
+        return 6;
+      }
+
+  }
+
+  return 0;
 }

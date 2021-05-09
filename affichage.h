@@ -1,4 +1,6 @@
-void mode_creation(int x, int y);
+#ifndef _AFFICHAGE_H_
+#define _AFFICHAGE_H_
+void mode_creation(int x, int y,char * c);
 void mode_kppv(int x, int y);
 void vakeur_k(int x, int y,char * s);
 void reinitialisation_fenetre(int x, int y);
@@ -15,3 +17,6 @@ double * ajouter_point(int x,int y);
 double * verif_position(int x,int y);
 double convert_X(int);
 double convert_Y(int);
+void general_window(int x ,int y,char * c,char * s);
+int change_mode();
+#endif
