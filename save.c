@@ -6,9 +6,8 @@
 
 void saveFromTab(char * path, pile * myTab, int nbDim, int nbClass){
   FILE *f = NULL;
-  point *p;
   f=fopen(path,"w+");
-  myTab->maPile->objet = myTab->premier;
+  myTab->maPile->objet = *myTab->premier;
   if(f!=NULL){
     fprintf(f,"%d %d %d\n", taille_pile(myTab), nbDim, nbClass);
     while(!est_pile_vide(myTab)){

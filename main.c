@@ -16,11 +16,13 @@
 int main(){
   int mode;
   int x,y,click;
-  x=y=click=1;
+  int done;
+  x=y=click=done=1;
   srand(time(NULL));
   pile * tab;
   point * myPoint;
   char * path = malloc(sizeof(char *));
+  mode = 0;
   if (path == NULL){
     printf("malloc mal passé\n");
   }
@@ -28,16 +30,8 @@ int main(){
 
 general_window(LARGEUR,HAUTEUR,"mode creation","valeur de k");
 MLV_actualise_window();
-MLV_draw_rectangle(x/50+650,154,650,20,MLV_COLOR_WHITE);
-//MLV_draw_rectangle(x/50+650,y/5+20,650,20,MLV_COLOR_RED);
-//MLV_draw_rectangle(x/50+650,y/4+20,650,20,MLV_COLOR_GREEN);
-//MLV_draw_rectangle(x/50+650,y/1.2+20,650,20,MLV_COLOR_YELLOW);
-//MLV_draw_rectangle(x/50+650,y/1.1+20,650,20,MLV_COLOR_BROWN);
-MLV_actualise_window();
 
-
-
-while (1) {
+while (done == 1) {
   printf("%d\n",mode);
   MLV_actualise_window();
   mode = 0;
@@ -67,6 +61,7 @@ while (1) {
       break;
     case 5:
       saveFromTab("./saves/save1.txt", tab, 2, 2);
+      done = 0;
       break;
     case 6:
       MLV_free_window();
@@ -77,7 +72,7 @@ while (1) {
 
     }
   }
-  MLV_wait_seconds(360);
+  MLV_wait_seconds(5);
   MLV_free_window();
 
 

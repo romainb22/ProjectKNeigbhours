@@ -23,7 +23,7 @@ pile * sortByDistance(pile * Pi, point * p){
     Pi->maPile = Pi->premier;
     j=i;
     for(i=0;i<=j;i++){
-      Pi->maPile->objet = Pi->maPile->suivant;
+      Pi->maPile = Pi->maPile->suivant;
     }
     res = empiler(res,Pi->maPile->objet);
   }
@@ -37,7 +37,7 @@ pile * removePoint(pile * Pi, point * p){
     if((Pi->maPile->objet->x != p->x) && (Pi->maPile->objet->y != p->y) && (Pi->maPile->objet->class != p->class)){
       res = empiler(res, Pi->maPile->objet);
     }
-    Pi->maPile->objet = Pi->maPile->suivant;
+    Pi->maPile = Pi->maPile->suivant;
   }
   return res;
 }
